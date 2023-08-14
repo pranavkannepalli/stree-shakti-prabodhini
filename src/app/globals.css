@@ -1,13 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --clr-primary: #FB2056;
+
+  --font-size-h1: clamp(32px, 7vw, 48px);
+  --font-size-h2: clamp(25px, 5vw, 30px);
+  --font-size-h3: clamp(20px, 4vw, 24px);
+  --font-size-h4: clamp(18px, 3vw, 20px);
+  --font-size-p: 16px;
+  --font-size-button: clamp(14px, 2.75vw, 16px);
+  --font-size-caption: 14px;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -40,37 +49,47 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+h1 {
+  font-size: var(--font-size-h1);
+  margin: 0;
+  font-weight: 400;
+  font-family: 'DM Serif Display', serif;
+}
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+h2 {
+  font-size: var(--font-size-h2);
+  margin: 0;
+  font-weight: 600;
+}
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+h3 {
+  font-size: var(--font-size-h3);
+  font-weight: 400;
+  margin: 0;
+  font-family: 'DM Serif Display', serif;
+}
 
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+h4 {
+  font-size: var(--font-size-h4);
+  font-weight: 400;
+  margin: 0;
+}
+
+p {
+  font-size: var(--font-size-p);
+  margin: 0;
+  font-weight: 400;
+}
+
+.button {
+  font-size: var(--font-size-button);
+  font-weight: 700;
+}
+
+.caption {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.5px;
 }
 
 * {
@@ -83,6 +102,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
