@@ -1,20 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Head from "next/head";
-import { useEffect } from "react";
+import {GET} from "./sheets/route";
+import { NextRequest } from "next/server";
 
-export default function Home() {
-    {async () => {
-        try {
-          const Sheets = require("node-sheets").default;
-          const gs = new Sheets("1-UeQshwrIbxUwYuTIspGlSdUsy6cR1gDR6texuyB7G4");
-          await gs.authorizeApiKey('AIzaSyDVmj279LmlTooCkalTcwH8QnGNhAy0xpQ');
-          const table = await gs.tables("ItemSheet!A:H");
-          console.log(table.headers);
-          console.log(table.rows);
-        } catch (err) {    console.error(err);  }
-    }};
-
+export default async function Home() {
     return (
         <>
             <Head>
