@@ -25,10 +25,11 @@ export async function GET(request: NextRequest) {
                     AltText: row_data[2] as string,
                     Name: row_data[3] as string,
                     Description: row_data[4] as string,
-                    Price: row_data[5] as string,
+                    Price: row_data[5] as number,
                     Dimensions: row_data[6] as string,
                     Availability: row_data[7] as string,
                     Category: row_data[8] as string,
+                    Quantity: 0,
                 };
                 data.push(new_data);
             }

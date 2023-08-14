@@ -53,10 +53,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 20px;
 }
 
 .itemSection h1 {
-  border-bottom: 2px solid red;
+  text-decoration: underline solid red 2px;
 }
 
 .itemGroup {

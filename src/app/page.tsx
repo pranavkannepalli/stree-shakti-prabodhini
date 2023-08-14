@@ -1,10 +1,25 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 import Head from "next/head";
-import {GET} from "./sheets/route";
-import { NextRequest } from "next/server";
+
+interface ItemData {
+    ProductNum: string;
+    Image: string;
+    AltText: string;
+    Name: string;
+    Description: string;
+    Price: number;
+    Dimensions: string;
+    Availability: string;
+    Category: string;
+    Quantity: number;
+}
 
 export default async function Home() {
+    const data = await fetch("https://stree-shakti-prabodhini.vercel.app/sheets").then(async (val) => {
+        return (await val.json()) as ItemData[];
+    });
+    console.log(data);
+
     return (
         <>
             <Head>
@@ -30,7 +45,20 @@ export default async function Home() {
             </section>
             <section className={styles.itemSection}>
                 <div>
-                    <h1>Featured</h1>
+                    {Array.from(new Set(data.map((item) => item.Category))).map((val, index) => {
+                        return (
+                            <div key={val}>
+                                <h1>{val}</h1>
+                                {data.filter((point) => point.Category = val).map((item) => {
+                                    return (
+                                        <div key={item.ProductNum}>
+                                            {item.ProductNum} {item.Name}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
         </>
