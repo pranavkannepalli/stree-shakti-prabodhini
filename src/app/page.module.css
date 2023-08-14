@@ -17,6 +17,10 @@
   height: 100%;
 }
 
+.heroContent h2 {
+  margin-bottom: -10px;
+}
+
 .heroItem {
   text-align: center;
   color: white;
@@ -50,10 +54,13 @@
 }
 
 .itemSection {
+  padding: 20px;
+}
+
+.itemGroups {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
 }
 
 .itemSection h1 {
@@ -61,7 +68,21 @@
 }
 
 .itemGroup {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  column-gap: 20px;
+  row-gap: 20px;
+  align-items: center;
+}
+
+@media screen and (max-width: 990px) {
+  .itemGroup {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .itemGroup {
+    grid-template-columns: auto;
+  }
 }

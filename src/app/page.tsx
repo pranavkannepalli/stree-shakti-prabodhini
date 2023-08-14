@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Head from "next/head";
+import Card from "./_card";
 
 interface ItemData {
     ProductNum: string;
@@ -16,10 +17,11 @@ interface ItemData {
 }
 
 export default async function Home() {
-    const data = await fetch("https://stree-shakti-prabodhini.vercel.app/sheets", {next: {revalidate: 60}}).then(async (val) => {
-        return (await val.json()) as ItemData[];
-    });
-    console.log(data);
+    const data = await fetch("https://stree-shakti-prabodhini.vercel.app/sheets", { next: { revalidate: 60 } }).then(
+        async (val) => {
+            return (await val.json()) as ItemData[];
+        }
+    );
 
     return (
         <>
@@ -39,24 +41,28 @@ export default async function Home() {
                     </div>
                 </div>
                 <div className={styles.heroContent}>
-                    <h3 className={styles.heroItem}>Jnana Prabodhini</h3>
+                    <h2 className={styles.heroItem}>Jnana Prabodhini</h2>
                     <h1 className={styles.heroItem}>Stree Shakti Prabodhan</h1>
                     <h4 className={styles.heroItem}>Empowering women, one story at a time.</h4>
                 </div>
             </section>
             <section className={styles.itemSection}>
-                <div>
+                <div className={styles.itemGroups}>
+                    <div>
+                        <h1>Note</h1>
+                        <p>For bulk orders (more than 10 items of one kind) or items that are unavailable please contact Jnana Prabodhini directly.</p>
+                    </div>
                     {Array.from(new Set(data.map((item) => item.Category))).map((val, index) => {
                         return (
                             <div key={val}>
                                 <h1>{val}</h1>
-                                {data.filter((point) => point.Category == val).map((item) => {
-                                    return (
-                                        <div key={item.ProductNum}>
-                                            CARD
-                                        </div>
-                                    );
-                                })}
+                                <div className={styles.itemGroup}>
+                                    {data
+                                        .filter((point) => point.Category == val)
+                                        .map((item) => {
+                                            return Card(item);
+                                        })}
+                                </div>
                             </div>
                         );
                     })}
