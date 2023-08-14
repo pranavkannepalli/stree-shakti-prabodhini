@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
                 let row_data = rows[i];
                 var new_data = {
                     ProductNum: row_data[0] as string,
-                    Image: row_data[1] as string,
+                    Image: (row_data[1] as string).replace('file/d/', 'uc?export=view&id=').replace('/view?usp=sharing', ''),
                     AltText: row_data[2] as string,
                     Name: row_data[3] as string,
                     Description: row_data[4] as string,

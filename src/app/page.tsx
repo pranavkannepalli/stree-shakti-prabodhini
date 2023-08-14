@@ -16,7 +16,7 @@ interface ItemData {
 }
 
 export default async function Home() {
-    const data = await fetch("https://stree-shakti-prabodhini.vercel.app/sheets", {next: {revalidate: 3600}}).then(async (val) => {
+    const data = await fetch("https://stree-shakti-prabodhini.vercel.app/sheets", {next: {revalidate: 60}}).then(async (val) => {
         return (await val.json()) as ItemData[];
     });
     console.log(data);
@@ -53,8 +53,7 @@ export default async function Home() {
                                 {data.filter((point) => point.Category == val).map((item) => {
                                     return (
                                         <div key={item.ProductNum}>
-                                            {item.ProductNum} {item.Name}
-                                            {item.Image != '' && <Image src={item.Image.replace('file/d', 'uc?export=view&id=').replace('/view?usp=sharing', '')} alt='' width={500} height={500}/>}
+                                            CARD
                                         </div>
                                     );
                                 })}
