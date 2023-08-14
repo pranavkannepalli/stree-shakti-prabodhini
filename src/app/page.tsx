@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./page.module.css";
 import Head from "next/head";
 
@@ -15,7 +16,7 @@ interface ItemData {
 }
 
 export default async function Home() {
-    const data = await fetch("https://stree-shakti-prabodhini.vercel.app/sheets").then(async (val) => {
+    const data = await fetch("https://stree-shakti-prabodhini.vercel.app/sheets", {next: {revalidate: 3600}}).then(async (val) => {
         return (await val.json()) as ItemData[];
     });
     console.log(data);
@@ -49,10 +50,11 @@ export default async function Home() {
                         return (
                             <div key={val}>
                                 <h1>{val}</h1>
-                                {data.filter((point) => point.Category = val).map((item) => {
+                                {data.filter((point) => point.Category == val).map((item) => {
                                     return (
                                         <div key={item.ProductNum}>
                                             {item.ProductNum} {item.Name}
+                                            {item.Image != '' && <Image src={item.Image.replace('file/d', 'uc?export=view&id=').replace('/view?usp=sharing', '')} alt='' width={500} height={500}/>}
                                         </div>
                                     );
                                 })}
