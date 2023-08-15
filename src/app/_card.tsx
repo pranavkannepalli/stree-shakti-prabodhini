@@ -1,22 +1,9 @@
-import Image from "next/image";
 import styles from "./_card.module.css";
+import ItemData from './_item_data';
 
-interface ItemData {
-    ProductNum: string;
-    Image: string;
-    AltText: string;
-    Name: string;
-    Description: string;
-    Price: number;
-    Dimensions: string;
-    Availability: string;
-    Category: string;
-    Quantity: number;
-}
-
-export default function Card(itemData: ItemData) {
+export default function Card(itemData: ItemData, add: Function, sub: Function) {
     return (
-        <div className={styles.card}>
+        <div className={styles.card} key={itemData.ProductNum}>
             <img src={itemData.Image.replace("file/d/", "uc?export=view&id=").replace("/view?usp=sharing", "")} alt={itemData.AltText} />
             <div className={styles.cardContent}>
                 <div className={styles.spaceBetween}>
@@ -29,9 +16,9 @@ export default function Card(itemData: ItemData) {
                     <div className={styles.spaceBetween}>
                         <h4>Available</h4>
                         <div className={styles.buttonGroup}>
-                            <button>+</button>
+                            <button onClick={() => add(itemData.ProductNum)}>+</button>
                             <h4>{itemData.Quantity}</h4>
-                            <button>-</button>
+                            <button onClick={() => sub(itemData.ProductNum)}>-</button>
                         </div>    
                     </div>
                 ) : <h4>Unavailable</h4>}

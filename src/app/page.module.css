@@ -52,37 +52,3 @@
 .navLink:hover {
   color: var(--clr-text);
 }
-
-.itemSection {
-  padding: 20px;
-}
-
-.itemGroups {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.itemSection h1 {
-  text-decoration: underline solid red 2px;
-}
-
-.itemGroup {
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
-  column-gap: 20px;
-  row-gap: 20px;
-  align-items: center;
-}
-
-@media screen and (max-width: 990px) {
-  .itemGroup {
-    grid-template-columns: repeat(2, 50%);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .itemGroup {
-    grid-template-columns: auto;
-  }
-}
