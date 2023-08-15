@@ -36,6 +36,11 @@
   color: white;
 }
 
+.navImg {
+  height: 100%;
+  width: auto;
+}
+
 .navLinks {
   display: flex;
   flex-direction: row;
@@ -51,4 +56,19 @@
 
 .navLink:hover {
   color: var(--clr-text);
+}
+
+.itemSection {
+  padding: 20px;
+}
+
+.footer {
+  padding: 20px;
+  color: white;
+  background-color: #222222;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

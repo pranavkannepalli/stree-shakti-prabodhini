@@ -1,18 +1,14 @@
-.itemSection {
-    padding: 20px;
-}
-
-.itemGroups {
+.itemGroup {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.itemSection h1 {
+.itemGroup h1 {
     text-decoration: underline solid red 2px;
 }
 
-.itemGroup {
+.items {
     display: grid;
     grid-template-columns: repeat(3, 33%);
     column-gap: 20px;
@@ -21,13 +17,13 @@
 }
 
 @media screen and (max-width: 990px) {
-    .itemGroup {
+    .items {
         grid-template-columns: repeat(2, 50%);
     }
 }
 
 @media screen and (max-width: 600px) {
-    .itemGroup {
+    .items {
         grid-template-columns: auto;
     }
 }

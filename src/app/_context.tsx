@@ -1,18 +1,16 @@
 "use client";
 
 import { createContext, useState } from "react";
-import ItemData from './_item_data';
+import ItemData from "./_item_data";
 
-const ItemContext = createContext<{ data: ItemData[], setData: Function, addItem: Function, subItem: Function }>(
-    {
-        data: [],
-        setData: () => {},
-        addItem: () => {},
-        subItem: () => {},
-    }
-);
+const ItemContext = createContext<{ data: ItemData[]; setData: Function; addItem: Function; subItem: Function }>({
+    data: [],
+    setData: () => {},
+    addItem: () => {},
+    subItem: () => {},
+});
 
-export const ItemContextProvider = ({children} : {children: any}) => {
+export const ItemContextProvider = ({ children }: { children: any }) => {
     const [data, setData] = useState<ItemData[]>([]);
 
     const addItem = (productNum: string) => {
@@ -26,9 +24,8 @@ export const ItemContextProvider = ({children} : {children: any}) => {
             }
         }
 
-        console.log('Add');
         setData(new_data);
-    }
+    };
 
     const subItem = (productNum: string) => {
         let new_data = [...data];
@@ -40,23 +37,18 @@ export const ItemContextProvider = ({children} : {children: any}) => {
                 i.Quantity = 0;
             }
         }
-        
-        console.log('Subtract');
+
         setData(new_data);
-    }
+    };
 
     const value = {
         data,
         setData,
         addItem,
-        subItem
-    }
+        subItem,
+    };
 
-    return (
-        <ItemContext.Provider value={value}>
-            {children}
-        </ItemContext.Provider>
-    )
-}
+    return <ItemContext.Provider value={value}>{children}</ItemContext.Provider>;
+};
 
 export default ItemContext;

@@ -1,16 +1,15 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Metadata } from "next";
-import ItemGroups from "./itemGroup";
-import ItemData from './_item_data';
+import ItemGroups from "./_itemGroup";
+import ItemData from "./_item_data";
 import { ItemContextProvider } from "./_context";
+import Link from "next/link";
 
-
-export const metadata : Metadata = {
-    title: 'Stree Shakti Prabodhan',
-    icons: './favicon.ico',
-}
-
+export const metadata: Metadata = {
+    title: "Stree Shakti Prabodhan",
+    icons: "./favicon.ico",
+};
 
 export default async function Home() {
     const data = await fetch("https://stree-shakti-prabodhan.vercel.app/sheets", { next: { revalidate: 60 } }).then(
@@ -23,12 +22,13 @@ export default async function Home() {
         <>
             <section className={styles.heroSection}>
                 <div className={styles.navContainer}>
-                    <h3>Logo</h3>
+                    <img src='../../public/JnanaPrabodhiniLogo.png' alt='Logo'/>
                     <div className={styles.navLinks}>
-                        <div className={styles.navLink}>Link</div>
-                        <div className={styles.navLink}>Link</div>
-                        <div className={styles.navLink}>Link</div>
-                        <div className={styles.navLink}>Link</div>
+                        {Array.from(new Set(data.map((item) => item.Category))).map((val, index) => (
+                            <Link className={styles.navLink} key={val} href={"#" + val}>
+                                {val}
+                            </Link>
+                        ))}
                     </div>
                 </div>
                 <div className={styles.heroContent}>
@@ -38,15 +38,20 @@ export default async function Home() {
                 </div>
             </section>
             <section className={styles.itemSection}>
-                <div className={styles.itemGroups}>
-                    <div>
-                        <h1>Note</h1>
-                        <p>For bulk orders (more than 10 items of one kind) or items that are unavailable please contact Jnana Prabodhini directly.</p>
-                    </div>
-                    <ItemContextProvider>
-                        <ItemGroups d={data}/>
-                    </ItemContextProvider>
-                </div>
+                <ItemContextProvider>
+                    <ItemGroups d={data} />
+                </ItemContextProvider>
+            </section>
+            <section className={styles.footer}>
+                <p>
+                    510, Sadashiv Peth, Pune, Maharashtra, India. Pin - 411030
+                </p>
+                <p>
+                    Phone: +91-20-24207000, +91-20-24477691
+                </p>
+                <p>
+                    Email:contact@jnanaprabodhini.org
+                </p>
             </section>
         </>
     );

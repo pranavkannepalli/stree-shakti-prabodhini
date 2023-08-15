@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 95%;
+    height: 100%;
 }
 
 .card img {
@@ -24,6 +26,7 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+    gap: 5px;
 }
 
 .buttonGroup {
