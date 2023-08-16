@@ -55,7 +55,7 @@
 }
 
 .navLink:hover {
-  color: var(--clr-text);
+  color: var(--clr-primary);
 }
 
 .itemSection {

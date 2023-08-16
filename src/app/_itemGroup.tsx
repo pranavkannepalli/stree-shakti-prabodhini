@@ -10,8 +10,12 @@ export default function ItemGroups({ d }: { d: ItemData[] }) {
     const { data, setData, addItem, subItem } = useContext(itemContext);
 
     useEffect(() => {
-        setData(d);
+        if (data.length == 0) {
+            setData(d);
+        }
     }, []);
+
+    console.log(useContext(itemContext));
 
     return (
         <>

@@ -5,6 +5,7 @@ import ItemGroups from "./_itemGroup";
 import ItemData from "./_item_data";
 import { ItemContextProvider } from "./_context";
 import Link from "next/link";
+import Logo from '../../public/JnanaPrabodhiniLogo.png';
 
 export const metadata: Metadata = {
     title: "Stree Shakti Prabodhan",
@@ -22,13 +23,16 @@ export default async function Home() {
         <>
             <section className={styles.heroSection}>
                 <div className={styles.navContainer}>
-                    <img src='../../public/JnanaPrabodhiniLogo.png' alt='Logo'/>
+                    <Image src={Logo} alt='Logo'/>
                     <div className={styles.navLinks}>
                         {Array.from(new Set(data.map((item) => item.Category))).map((val, index) => (
                             <Link className={styles.navLink} key={val} href={"#" + val}>
-                                {val}
+                                <p>{val}</p>
                             </Link>
                         ))}
+                        <Link className={styles.navLink} href={"checkout"}>
+                                <p>Checkout</p>
+                            </Link>
                     </div>
                 </div>
                 <div className={styles.heroContent}>
@@ -38,19 +42,17 @@ export default async function Home() {
                 </div>
             </section>
             <section className={styles.itemSection}>
-                <ItemContextProvider>
-                    <ItemGroups d={data} />
-                </ItemContextProvider>
+                <ItemGroups d={data} />
             </section>
             <section className={styles.footer}>
                 <p>
                     510, Sadashiv Peth, Pune, Maharashtra, India. Pin - 411030
                 </p>
                 <p>
-                    Phone: +91-20-24207000, +91-20-24477691
+                    Phone: +919881937206, +919922296699
                 </p>
                 <p>
-                    Email:contact@jnanaprabodhini.org
+                    Email: ssprabodhan@jnanaprabodhini.org
                 </p>
             </section>
         </>
