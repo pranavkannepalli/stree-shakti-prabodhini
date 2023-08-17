@@ -19,9 +19,9 @@ export async function POST(req: NextRequest) {
     sendgrid
         .send(msg)
         .then(() => {
-            return NextResponse.json('Success');
+            return NextResponse.json({status: 'Success'});
         })
         .catch((error: any) => {
-            return NextResponse.json('Failure');
+            return NextResponse.json({status: 'Failure'});
         });
 }
