@@ -64,7 +64,7 @@ export default function CheckoutContent() {
                         ) : (
                             <div className={styles.subtotal}>
                                 {selectedItems.map((val) => (
-                                    <div className={styles.spaceBetween}>
+                                    <div className={styles.spaceBetween} key={val.ProductNum}>
                                         <p>
                                             {val.Name} x {val.Quantity}
                                         </p>
