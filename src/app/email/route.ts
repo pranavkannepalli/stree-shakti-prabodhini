@@ -2,7 +2,7 @@ import sendgrid from "@sendgrid/mail";
 import { NextRequest, NextResponse } from "next/server";
 
 export function GET() {
-    return NextResponse.json({result: 'Hi world'});
+    return NextResponse.json({ result: "Hi world" });
 }
 
 export async function POST(req: NextRequest) {
@@ -16,12 +16,11 @@ export async function POST(req: NextRequest) {
         text: "and easy to do anywhere, even with Node.js",
         html: "<strong>and easy to do anywhere, even with Node.js</strong>",
     };
-    sendgrid
-        .send(msg)
+    const s = await sendgrid.send(msg)
         .then(() => {
-            return NextResponse.json({status: 'Success'});
+            return NextResponse.json({ status: "Success" });
         })
         .catch((error: any) => {
-            return NextResponse.json({status: 'Failure'});
+            return NextResponse.json({ status: "Failure" });
         });
 }
