@@ -1,8 +1,8 @@
 import sendgrid from "@sendgrid/mail";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
-    return NextResponse.json('Hi world');
+export function GET() {
+    return NextResponse.json({result: 'Hi world'});
 }
 
 export async function POST(req: NextRequest) {
