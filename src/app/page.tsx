@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { Metadata } from "next";
 import ItemGroups from "./_itemGroup";
 import ItemData from "./_item_data";
-import NavHero from './_nav';
+import NavHero from "./_nav";
 
 export const metadata: Metadata = {
     title: "Stree Shakti Prabodhan",
@@ -17,12 +17,18 @@ export default async function Home() {
         }
     );
 
-    const smth = await fetch('https://stree-shakti-prabodhan.vercel.app/email', )
+    const smth = await fetch("https://stree-shakti-prabodhan.vercel.app/email", {
+        body: JSON.stringify({ email: "pranav.kannepalli@gmail.com" }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+    }).then(async (val) => {
+        console.log(val.json());
+    });
 
     return (
         <>
             <section>
-                <NavHero/>
+                <NavHero />
             </section>
             <section className={styles.itemSection}>
                 <ItemGroups d={data} />
