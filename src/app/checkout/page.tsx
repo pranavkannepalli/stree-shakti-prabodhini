@@ -7,6 +7,7 @@ import Logo from "../../../public/JnanaPrabodhiniLogo.png";
 import ItemContext from "../_context";
 import { useContext, useState } from "react";
 import CheckoutCard from "./_checkoutCard";
+import submitForm from "../_submitForm";
 
 export default function CheckoutContent() {
     const { data, setData, addItem, subItem } = useContext(ItemContext);
@@ -27,10 +28,6 @@ export default function CheckoutContent() {
 
         return s;
     };
-
-    const handleSubmit = () => {
-        
-    }
 
     return (
         <div>
@@ -78,7 +75,7 @@ export default function CheckoutContent() {
                             </div>
                         )}
                         <h2 style={{ marginTop: "20px" }}>Details</h2>
-                        <form className={styles.form} onSubmit={() => {handleSubmit()}}> 
+                        <form className={styles.form} onSubmit={async (e) => {e.preventDefault(); await submitForm(name, email, selectedItems);}}> 
                             <p>Name</p>
                             <input placeholder="Ex: John Doe" onChange={(e) => setName(e.target.value)} />
                             <p>Address</p>
@@ -90,7 +87,7 @@ export default function CheckoutContent() {
                             <input placeholder="Ex: johndoe@gmail.com" onChange={(e) => setEmail(e.target.value)} />
                             <p>Phone Num</p>
                             <input placeholder="Ex: +1 123-456-7890" onChange={(e) => setName(e.target.value)} />
-                            <button type='submit'></button>
+                            <button type='submit'>Submit</button>
                         </form>
                     </div>
                 </div>
