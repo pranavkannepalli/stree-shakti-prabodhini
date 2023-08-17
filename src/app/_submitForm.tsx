@@ -19,5 +19,10 @@ export default async function submitForm(name: string, email: string, selectedIt
 
     const res = await fetch('https://stree-shakti-prabodhan.vercel.app/email', {body: formData, mode: 'no-cors', method: 'POST', headers: {"Content-Type": 'multipart/formdata'}});
 
-    console.log(res.json());
+    if (res.status == 200) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }

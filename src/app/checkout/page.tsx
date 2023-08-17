@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../../public/JnanaPrabodhiniLogo.png";
 import ItemContext from "../_context";
-import { useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import CheckoutCard from "./_checkoutCard";
 import submitForm from "../_submitForm";
+import { useRouter } from "next/router";
 
 export default function CheckoutContent() {
     const { data, setData, addItem, subItem } = useContext(ItemContext);
@@ -16,8 +17,11 @@ export default function CheckoutContent() {
     const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNum, setPhoneNum] = useState("");
+    const [error, setError] = useState("");
 
     const selectedItems = data.filter((val) => val.Quantity > 0);
+
+    const router = useRouter();
 
     const calcTotal = () => {
         let s = 0;
@@ -27,6 +31,16 @@ export default function CheckoutContent() {
         });
 
         return s;
+    };
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const status = await submitForm(name, email, selectedItems);
+        if (status) {
+            router.push("/confirmation");
+        } else {
+            setError("Please try again later");
+        }
     };
 
     return (
@@ -75,7 +89,7 @@ export default function CheckoutContent() {
                             </div>
                         )}
                         <h2 style={{ marginTop: "20px" }}>Details</h2>
-                        <form className={styles.form} onSubmit={async (e) => {e.preventDefault(); await submitForm(name, email, selectedItems);}}> 
+                        <form className={styles.form} onSubmit={async (e) => {handleSubmit(e)}}>
                             <p>Name</p>
                             <input placeholder="Ex: John Doe" onChange={(e) => setName(e.target.value)} />
                             <p>Address</p>
@@ -87,8 +101,9 @@ export default function CheckoutContent() {
                             <input placeholder="Ex: johndoe@gmail.com" onChange={(e) => setEmail(e.target.value)} />
                             <p>Phone Num</p>
                             <input placeholder="Ex: +1 123-456-7890" onChange={(e) => setPhoneNum(e.target.value)} />
-                            <button type='submit'>Submit</button>
+                            <button type="submit">Submit</button>
                         </form>
+                        <p>{error}</p>
                     </div>
                 </div>
             </section>
