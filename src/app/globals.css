@@ -54,6 +54,20 @@ p {
   font-family: 'Montserrat', sans-serif;
 }
 
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--clr-primary);
+  border: none;
+  box-shadow: none;
+  transition: all 250ms ease-in-out;
+}
+
+button:hover {
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.25);
+  color: black;
+}
+
 .button {
   font-size: var(--font-size-button);
   font-weight: 700;

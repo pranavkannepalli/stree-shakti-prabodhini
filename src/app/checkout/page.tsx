@@ -8,7 +8,9 @@ import ItemContext from "../_context";
 import { FormEvent, useContext, useState } from "react";
 import CheckoutCard from "./_checkoutCard";
 import submitForm from "../_submitForm";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { Icon } from "@iconify/react";
+import menuIcon from "@iconify/icons-ion/menu";
 
 export default function CheckoutContent() {
     const { data, setData, addItem, subItem } = useContext(ItemContext);
@@ -18,6 +20,7 @@ export default function CheckoutContent() {
     const [email, setEmail] = useState("");
     const [phoneNum, setPhoneNum] = useState("");
     const [error, setError] = useState("");
+    const [expand, setExpand] = useState(false);
 
     const selectedItems = data.filter((val) => val.Quantity > 0);
 
@@ -45,20 +48,23 @@ export default function CheckoutContent() {
 
     return (
         <div>
-            <section className={styles.checkout}>
-                <div className={styles.navContainer}>
-                    <Image src={Logo} alt="Logo" />
-                    <div className={styles.navLinks}>
-                        {Array.from(new Set(data.map((item) => item.Category))).map((val, index) => (
-                            <Link className={styles.navLink} key={val} href={"/#" + val}>
-                                <p>{val}</p>
-                            </Link>
-                        ))}
-                        <Link className={styles.navLink} href={"/"}>
-                            <p>Back</p>
-                        </Link>
-                    </div>
+            <div className={styles.invisible}>
+                <Image src={Logo} alt="Logo" />
+                <div className={styles.menu} onClick={() => setExpand(!expand)}>
+                    <Icon icon={menuIcon} height={30} width={30} />
                 </div>
+                <div className={expand ? styles.navLinks : styles.collapse}>
+                    {Array.from(new Set(data.map((item) => item.Category))).map((val, index) => (
+                        <Link className={styles.navLink} key={val} href={"/#" + val}>
+                            <p>{val}</p>
+                        </Link>
+                    ))}
+                    <Link className={styles.navLink} href={"/"}>
+                        <p>Back Home</p>
+                    </Link>
+                </div>
+            </div>
+            <section className={styles.checkout}>
                 <h1>Checkout</h1>
                 <div className={styles.grid}>
                     <div className={styles.card}>
@@ -89,7 +95,12 @@ export default function CheckoutContent() {
                             </div>
                         )}
                         <h2 style={{ marginTop: "20px" }}>Details</h2>
-                        <form className={styles.form} onSubmit={async (e) => {handleSubmit(e)}}>
+                        <form
+                            className={styles.form}
+                            onSubmit={async (e) => {
+                                handleSubmit(e);
+                            }}
+                        >
                             <p>Name</p>
                             <input placeholder="Ex: John Doe" onChange={(e) => setName(e.target.value)} />
                             <p>Address</p>
