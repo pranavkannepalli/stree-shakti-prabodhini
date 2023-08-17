@@ -17,6 +17,8 @@ export default async function Home() {
         }
     );
 
+    const smth = await fetch('https://stree-shakti-prabodhan.vercel.app/email', )
+
     return (
         <>
             <section>
