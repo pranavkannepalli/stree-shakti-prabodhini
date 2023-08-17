@@ -1,6 +1,6 @@
 import ItemData from "./_item_data";
 
-export default async function submitForm(name: string, email: string, selectedItems: ItemData[]) {
+export default async function submitForm(name: string, email: string, address: string, phoneNum: string, selectedItems: ItemData[]) {
     console.log(email);
 
     var formData = new FormData();
@@ -14,6 +14,8 @@ export default async function submitForm(name: string, email: string, selectedIt
             }</td></tr>`
     )}</table>`;
     formData.append('items', items);
+    formData.append('address', address);
+    formData.append('phoneNum', phoneNum);
     
     console.log(formData.toString());
 

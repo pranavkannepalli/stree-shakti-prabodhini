@@ -38,7 +38,7 @@ export default function CheckoutContent() {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const status = await submitForm(name, email, selectedItems);
+        const status = await submitForm(name, email, address, phoneNum, selectedItems);
         if (status) {
             router.push("/confirmation");
         } else {

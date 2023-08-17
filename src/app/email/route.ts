@@ -13,7 +13,7 @@ export async function POST(request: Request) {
         to: [`${req.get('email')}`, 'ssprabodhan@jnanaprabodhini.org'], // Change to your recipient
         from: "streeshaktiprabodhan@gmail.com", // Change to your verified sender
         subject: "Stree Shakti Prabodhini Order",
-        html: `<div><p>Hello ${req.get('name')},<p><p>Thank you for your order! Enclosed are your order details:</p>${req.get('items')}<p>Thank you,</p><p>Stree Shakti Prabodhan</p></div>`,
+        html: `<div><p>Hello ${req.get('name')},<p><p>Thank you for your order! Enclosed are your order details:</p>${req.get('items')}<p>Delivery Address: ${req.get('address')}</p><p>Phone Num: ${req.get('phoneNum')}</p><p>Thank you,</p><p>Stree Shakti Prabodhan</p></div>`,
     };
     const s = await sendgrid.send(msg)
         .then(() => {
