@@ -112,7 +112,7 @@ export default function CheckoutContent() {
                             <input placeholder="Ex: johndoe@gmail.com" onChange={(e) => setEmail(e.target.value)} />
                             <p>Phone Num</p>
                             <input placeholder="Ex: +1 123-456-7890" onChange={(e) => setPhoneNum(e.target.value)} />
-                            <button type="submit">Submit</button>
+                            <button type="submit" className={styles.button}>Submit</button>
                         </form>
                         <p>{error}</p>
                     </div>

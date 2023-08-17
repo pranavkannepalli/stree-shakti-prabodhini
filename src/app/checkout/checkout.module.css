@@ -61,6 +61,20 @@
     gap: 5px;
 }
 
+.button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--clr-primary);
+    border: none;
+    box-shadow: none;
+    transition: all 250ms ease-in-out;
+}
+
+.button:hover {
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    color: black;
+}
+
 @media screen and (max-width: 800px) {
     .grid {
         grid-template-columns: auto;
