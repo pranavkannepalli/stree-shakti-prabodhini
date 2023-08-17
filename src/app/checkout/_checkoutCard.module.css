@@ -6,7 +6,6 @@
     align-items: center;
     gap: 5px;
     width: 100%;
-    height: 100%;
 }
 
 .card img {
@@ -29,6 +28,7 @@
     flex-direction: row;
     align-items: center;
     gap: 5px;
+    flex-wrap: wrap;
 }
 
 .buttonGroup {
@@ -50,10 +50,4 @@
 .buttonGroup button:hover {
     background-color: rgb(197, 197, 197);
     box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.5);
-}
-
-@media screen and (max-width: 600px) {
-    .card img {
-        width: 60%;
-    }
 }

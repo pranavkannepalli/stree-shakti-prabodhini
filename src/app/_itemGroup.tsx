@@ -15,8 +15,6 @@ export default function ItemGroups({ d }: { d: ItemData[] }) {
         }
     }, []);
 
-    console.log(useContext(itemContext));
-
     return (
         <>
             <div className={styles.itemGroup}>

@@ -41,12 +41,6 @@
     align-items: center;
 }
 
-@media screen and (max-width: 600px) {
-    .grid {
-        grid-template-columns: auto;
-    }
-}
-
 .card {
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
@@ -77,12 +71,14 @@
 }
 
 .form input {
-    background: none;
-    border: 1px solid black;
+    background: rgba(0,0,0,0.1);
+    border: none;
     padding: 5px;
     border-radius: 5px;
     width: 100%;
     margin-bottom: 10px;
+    color: black;
+    margin-top: 5px;
 }
 
 .footer {
@@ -95,3 +91,10 @@
     flex-direction: column;
     gap: 5px;
   }
+
+  
+@media screen and (max-width: 800px) {
+    .grid {
+        grid-template-columns: auto;
+    }
+}

@@ -11,10 +11,10 @@
   --clr-primary: #FB2056;
 
   --font-size-h1: clamp(32px, 7vw, 72px);
-  --font-size-h2: clamp(25px, 5vw, 45px);
-  --font-size-h3: clamp(24px, 4vw, 28px);
-  --font-size-h4: clamp(20px, 3vw, 24px);
-  --font-size-p: 20px;
+  --font-size-h2: clamp(24px, 5vw, 45px);
+  --font-size-h3: clamp(20px, 4vw, 28px);
+  --font-size-h4: clamp(18px, 3vw, 24px);
+  --font-size-p: clamp(16px, 2.5vw, 20px)
   --font-size-button: clamp(16px, 2.75vw, 18px);
   --font-size-caption: 16px;
 }
@@ -44,23 +44,27 @@ h4 {
   font-size: var(--font-size-h4);
   font-weight: 400;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 p {
   font-size: var(--font-size-p);
   margin: 0;
   font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .button {
   font-size: var(--font-size-button);
   font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .caption {
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1.5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 * {

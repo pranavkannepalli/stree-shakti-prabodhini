@@ -6,7 +6,7 @@ export default function CheckoutCard(itemData: ItemData, add: Function, sub: Fun
         <div className={styles.card} key={itemData.ProductNum}>
             <img src={itemData.Image} alt={itemData.AltText} />
             <div className={styles.cardContent}>
-                <h3>{itemData.ProductNum + ") " + itemData.Name}</h3>
+                <h4>{itemData.Name}</h4>
                 {itemData.Availability == "TRUE" ? (
                     <div className={styles.spaceBetween}>
                         <h4>₹{itemData.Price}</h4>

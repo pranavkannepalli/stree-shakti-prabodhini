@@ -1,0 +1,142 @@
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.heroContent h2 {
+    margin-bottom: -10px;
+}
+
+.heroItem {
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.stickyNav {
+    display: flex;
+    flex-direction: row;
+    padding: 16px 20px;
+    color: black;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    background: #ecf0f1;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.navImg {
+    height: 100%;
+    width: auto;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.navLink {
+    text-decoration: none;
+}
+
+.navLink:hover {
+    color: var(--clr-primary);
+}
+
+.invisible {
+    display: flex;
+    flex-direction: row;
+    color: var(--clr-text);
+    padding: 16px;
+    color: #000000;
+    background: #ecf0f1;
+    width: 100%;
+}
+
+
+.heroSection {
+    height: 100vh;
+    background: url("../../public/Landing.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 50px;
+  }
+
+.box {
+    width: 100vw;
+    height: 82px;
+}
+
+.menu {
+    display: none;
+}
+
+.collapse {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    height: 100%;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .navLinks {
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0px;
+        text-align: center;
+        gap: 0px;
+        border-top: 1px solid black;
+        padding-top: 20px;
+        background: #ecf0f1;
+    }
+    
+    .navLink {
+        width: 100vw;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    .invisible .navLinks {
+        top: calc(100vh + 80px);
+        position: absolute;
+    }
+
+    .collapse {
+        display: none;
+    }
+}
