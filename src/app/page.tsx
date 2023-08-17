@@ -17,14 +17,6 @@ export default async function Home() {
         }
     );
 
-    const smth = await fetch("https://stree-shakti-prabodhan.vercel.app/email", {
-        body: JSON.stringify({ email: "pranav.kannepalli@gmail.com" }),
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-    }).then(async (val) => {
-        console.log(val.json());
-    });
-
     return (
         <>
             <section>
