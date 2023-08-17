@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
     sendgrid.setApiKey("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");
     const msg = {
-        to: `${req.get('email')}`, // Change to your recipient
+        to: [`${req.get('email')}`, 'ssprabodhan@jnanaprabodhini.org'], // Change to your recipient
         from: "streeshaktiprabodhan@gmail.com", // Change to your verified sender
         subject: "Stree Shakti Prabodhini Order",
         html: `<div><p>Hello ${req.get('name')},<p><p>Thank you for your order! Enclosed are your order details:</p>${req.get('items')}<p>Thank you,</p><p>Stree Shakti Prabodhan</p></div>`,
