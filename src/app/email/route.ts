@@ -23,4 +23,6 @@ export async function POST(req: NextRequest) {
         .catch((error: any) => {
             return NextResponse.json({ status: "Failure" });
         });
+    
+    return s;
 }
