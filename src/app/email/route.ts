@@ -1,5 +1,5 @@
 import sendgrid from "@sendgrid/mail";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     const data = await req.json();
@@ -15,11 +15,9 @@ export async function POST(req: NextRequest) {
     sendgrid
         .send(msg)
         .then(() => {
-            console.log("Email sent");
+            return NextResponse.json('Success');
         })
         .catch((error: any) => {
-            console.error(error);
+            return NextResponse.json('Failure');
         });
-
-    console.log("Message sent");
 }
