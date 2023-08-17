@@ -5,9 +5,7 @@ export function GET() {
     return NextResponse.json({ result: "Hi world" });
 }
 
-export async function POST(req: NextRequest) {
-    const data = await req.json();
-
+export async function POST() {
     sendgrid.setApiKey("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");
     const msg = {
         to: "pranav.kannepalli@gmail.com", // Change to your recipient
