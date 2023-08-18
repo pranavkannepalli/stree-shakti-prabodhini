@@ -101,18 +101,44 @@ export default function CheckoutContent() {
                                 handleSubmit(e);
                             }}
                         >
-                            <p>Name</p>
-                            <input placeholder="Ex: John Doe" onChange={(e) => setName(e.target.value)} />
-                            <p>Address</p>
+                            <label htmlFor='name'>Name</label>
+                            <input
+                                placeholder="Ex: John Doe"
+                                onChange={(e) => setName(e.target.value)}
+                                required={true}
+                                id='name'
+                                name='name'
+                            />
+                            <label htmlFor='address'>Address</label>
                             <input
                                 placeholder="Ex: 404 Arroyo Lane, Albequerque, New Mexico, USA"
                                 onChange={(e) => setAddress(e.target.value)}
+                                required={true}
+                                id="address"
+                                name="address"
                             />
-                            <p>Email</p>
-                            <input placeholder="Ex: johndoe@gmail.com" onChange={(e) => setEmail(e.target.value)} />
-                            <p>Phone Num</p>
-                            <input placeholder="Ex: +1 123-456-7890" onChange={(e) => setPhoneNum(e.target.value)} />
-                            <button type="submit" className={styles.button}>Submit</button>
+                            <label htmlFor="email">Email</label>
+                            <input
+                                placeholder="Ex: johndoe@gmail.com"
+                                onChange={(e) => setEmail(e.target.value)}
+                                type="email"
+                                required={true}
+                                id="email"
+                                name="email"
+                            />
+                            <label htmlFor="phone">Phone Num (10 digits)</label>
+                            <input
+                                placeholder="Ex: 4255331980"
+                                onChange={(e) => setPhoneNum(e.target.value)}
+                                type="tel"
+                                required={true}
+                                id="phone"
+                                name="phone"
+                                pattern='[0-9]{10}'
+                            />
+                            <button type="submit" className={styles.button}>
+                                Submit
+                            </button>
                         </form>
                         <p>{error}</p>
                     </div>
