@@ -44,9 +44,11 @@ export default function ItemGroups({ d }: { d: ItemData[] }) {
                     </div>
                 );
             })}
-            <Link href="/checkout" className={styles.navLink}>
-                <button className={styles.button}>Proceed to Checkout</button>
-            </Link>
+            <div className={styles.bigCenter}>
+                <Link href="/checkout" className={styles.navLink}>
+                    <button className={styles.button}>Proceed to Checkout</button>
+                </Link>
+            </div>
         </>
     );
 }
