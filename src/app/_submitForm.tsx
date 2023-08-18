@@ -22,6 +22,32 @@ export default async function submitForm(name: string, email: string, address: s
     </tr>
     `);
 
+    const calcTotal = () => {
+        let s = 0;
+
+        selectedItems.forEach((val) => {
+            s += val.Quantity * val.Price;
+        });
+
+        return s;
+    };
+
+    var subtotal = `
+    <tr>
+        <td style='padding: 3px;'>
+            Total
+        </td>
+        <td style='padding: 3px;'>
+            --
+        </td>
+        <td style='padding: 3px;'>
+            --
+        </td>
+        <td style='padding: 3px;'>
+            ${calcTotal()}
+        </td>
+    </tr>`;
+
     var items = text.join(' ');
 
     formData.append('items', items);
