@@ -111,7 +111,7 @@ export default function CheckoutContent() {
                             />
                             <label htmlFor='address'>Address</label>
                             <input
-                                placeholder="Ex: 404 Arroyo Lane, Albequerque, New Mexico, USA"
+                                placeholder="Ex: 308 Negra Arroya Lane, Albequerque, New Mexico, USA"
                                 onChange={(e) => setAddress(e.target.value)}
                                 required={true}
                                 id="address"
