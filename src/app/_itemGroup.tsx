@@ -45,7 +45,7 @@ export default function ItemGroups({ d }: { d: ItemData[] }) {
                 );
             })}
             <Link href="/checkout" className={styles.navLink}>
-                <button>Proceed to Checkout</button>
+                <button className={styles.button}>Proceed to Checkout</button>
             </Link>
         </>
     );
