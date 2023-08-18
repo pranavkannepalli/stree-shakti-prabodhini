@@ -16,6 +16,23 @@
     align-items: center;
 }
 
+.spaceBetween {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navLink {
+    color: black;
+    font-size: var(--font-size-h2);
+}
+
+.navLink:hover{
+    color: var(--clr-primary);
+}
+
 @media screen and (max-width: 990px) {
     .items {
         grid-template-columns: repeat(2, 50%);
