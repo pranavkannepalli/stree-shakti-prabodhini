@@ -4,7 +4,9 @@ import ItemData from './_item_data';
 export default function Card(itemData: ItemData, add: Function, sub: Function) {
     return (
         <div className={styles.card} key={itemData.ProductNum}>
-            <img src={itemData.Image} alt={itemData.AltText} />
+            <div className={styles.imgContainer}>
+                <img src={itemData.Image} alt={itemData.AltText} />
+            </div>
             <div className={styles.cardContent}>
                 <div className={styles.spaceBetween}>
                     <h3>{itemData.ProductNum + ') ' + itemData.Name}</h3>

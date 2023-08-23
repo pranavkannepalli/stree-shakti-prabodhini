@@ -12,6 +12,8 @@
     width: 100%;
     border-radius: 25px 25px 0px 0px;
     aspect-ratio: 424/300;
+    object-fit: contain;
+    background: rgba(211,210,214,.5);
 }
 
 .cardContent {
