@@ -73,7 +73,7 @@
 
 .heroSection {
     height: 100vh;
-    background: url("../../public/Landing.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../../public/Landing.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

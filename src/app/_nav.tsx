@@ -10,6 +10,7 @@ import { useIsVisible } from "./_isVisible";
 import { Icon } from "@iconify/react";
 import bagOutline from "@iconify/icons-ion/bag-outline";
 import menuIcon from "@iconify/icons-ion/menu";
+import StreeShakti from '../../public/StreeShakti.jpg';
 
 export default function NavHero() {
     const { data } = useContext(ItemContext);
@@ -28,7 +29,8 @@ export default function NavHero() {
             </div>
             {!isVisible && <div className={styles.box}></div>}
             <div className={isVisible ? styles.invisible : styles.stickyNav}>
-                <Image src={Logo} alt="Logo" />
+                <Image src={Logo} alt="Logo" height={64}/>
+                <Image src={StreeShakti} alt="Alt Logo" height={64}/>
                 <div className={styles.menu} onClick={() => setExpand(!expand)}>
                     <Icon icon={menuIcon} height={30} width={30} />
                 </div>
