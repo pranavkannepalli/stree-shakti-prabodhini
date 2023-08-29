@@ -50,7 +50,6 @@ export async function POST(request: NextRequest) {
         const response = await sheets.spreadsheets.values.append({
             spreadsheetId: "1MGK0S7GPnI72Y7f8iu7zIb4mPeJ7LYyTH6ESDYOPdgY",
             range: "OrderSheet",
-            valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [
                     ["Pranav K", "1x Smth", "4255331980", "pranav.kannepalli@gmail.com", "15355 NE 66th Ct Redmond WA"]
