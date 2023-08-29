@@ -40,4 +40,29 @@ export async function GET(request: NextRequest) {
     }
 }
 
+export async function POST(request: NextRequest) {
+    try {
+        const target = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
+        const auth = google.auth.fromAPIKey("AIzaSyDVmj279LmlTooCkalTcwH8QnGNhAy0xpQ");
+
+        const sheets = google.sheets({ version: "v4", auth: auth });
+
+        const response = await sheets.spreadsheets.values.append({
+            spreadsheetId: "1fc-2p4KogFcJMmKfgbe5Ym7ODeRS4Amu19J_XOi_zpA",
+            range: "A1:E1",
+            valueInputOPtion: 'USER_ENTERED',
+            requestBody: {
+                values: [
+                    ["Pranav K", "1x Smth", "4255331980", "pranav.kannepalli@gmail.com", "15355 NE 66th Ct Redmond WA"]
+                ]
+            }
+        })
+
+        return NextResponse.json({result : 'Stunning'})
+    }
+    catch (e) {
+        return NextResponse.json({result : 'Not great'})
+    }
+}
+
 export const revalidate = 0;
