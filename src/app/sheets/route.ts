@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({result : 'Stunning'})
     }
     catch (e) {
-        return NextResponse.json({result : 'Not great'})
+        return NextResponse.json({result : 'Not great', error: e})
     }
 }
 
