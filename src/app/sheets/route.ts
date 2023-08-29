@@ -48,8 +48,8 @@ export async function POST(request: NextRequest) {
         const sheets = google.sheets({ version: "v4", auth: auth });
 
         const response = await sheets.spreadsheets.values.append({
-            spreadsheetId: "1fc-2p4KogFcJMmKfgbe5Ym7ODeRS4Amu19J_XOi_zpA",
-            range: "A1:E1",
+            spreadsheetId: "1MGK0S7GPnI72Y7f8iu7zIb4mPeJ7LYyTH6ESDYOPdgY",
+            range: "OrderSheet",
             valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [
