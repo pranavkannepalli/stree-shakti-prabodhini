@@ -42,7 +42,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     try {
-        const target = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
+        const target = ["https://www.googleapis.com/auth/spreadsheets"];
         const auth = google.auth.fromAPIKey("AIzaSyDVmj279LmlTooCkalTcwH8QnGNhAy0xpQ");
 
         const sheets = google.sheets({ version: "v4", auth: auth });
