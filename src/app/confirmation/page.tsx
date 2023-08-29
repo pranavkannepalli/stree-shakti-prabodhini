@@ -16,7 +16,7 @@ export default function Confirmation() {
     return (
         <>
             <div className={styles.invisible}>
-                <Image src={Logo} alt="Logo" />
+                <Image src={Logo} alt="Logo" height={64}/>
                 <div className={styles.menu} onClick={() => setExpand(!expand)}>
                     <Icon icon={menuIcon} height={30} width={30} />
                 </div>
