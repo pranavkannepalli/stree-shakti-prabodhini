@@ -64,8 +64,6 @@ export default async function submitForm(name: string, email: string, address: s
     const res = await fetch('https://stree-shakti-prabodhan.vercel.app/email', {body: formData, mode: 'no-cors', method: 'POST', headers: {"Content-Type": 'multipart/formdata'}});
     const res2 = await fetch('https://stree-shakti-prabodhan.vercel.app/sheets', {body: formData, mode: 'no-cors', method: 'POST', headers: {"Content-Type": 'multipart/formdata'}});
     
-    console.log(res2);
-
     if (res.status == 200 && res2.status == 200) {
         return true;
     }
