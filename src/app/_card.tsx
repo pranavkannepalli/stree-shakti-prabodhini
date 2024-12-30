@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./_card.module.css";
 import ItemData from './_item_data';
 
@@ -5,7 +6,7 @@ export default function Card(itemData: ItemData, add: Function, sub: Function) {
     return (
         <div className={styles.card} key={itemData.ProductNum}>
             <div className={styles.imgContainer}>
-                <img src={itemData.Image} alt={itemData.AltText} />
+                <Image src={"/" + itemData.ProductNum + ".jpeg"} alt={itemData.AltText} width={1000} height={500} />
             </div>
             <div className={styles.cardContent}>
                 <div className={styles.spaceBetween}>
@@ -21,7 +22,7 @@ export default function Card(itemData: ItemData, add: Function, sub: Function) {
                             <button onClick={() => add(itemData.ProductNum)}>+</button>
                             <h4>{itemData.Quantity}</h4>
                             <button onClick={() => sub(itemData.ProductNum)}>-</button>
-                        </div>    
+                        </div>
                     </div>
                 ) : <h4>Unavailable</h4>}
             </div>
