@@ -1,10 +1,11 @@
 import ItemData from "../_item_data";
 import styles from "./_checkoutCard.module.css";
+import Image from "next/image";
 
 export default function CheckoutCard(itemData: ItemData, add: Function, sub: Function) {
     return (
         <div className={styles.card} key={itemData.ProductNum}>
-            <img src={itemData.Image} alt={itemData.AltText} />
+            <Image src={"/" + itemData.ProductNum + ".jpeg"} alt={itemData.AltText} width={1000} height={500} />
             <div className={styles.cardContent}>
                 <h4>{itemData.Name}</h4>
                 {itemData.Availability == "TRUE" ? (
